@@ -13,7 +13,7 @@ let stream: null | WriteStream = null
 export const startLogging = (): void => {
   const validTime = getTime()
     .replaceAll('.', '-')
-    .replaceAll(':', ';')
+    .replaceAll(':', '-')
     .replace(' ', '_')
     
   const logName = `./${validTime} log.txt`
