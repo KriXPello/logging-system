@@ -1,6 +1,6 @@
 import { createWriteStream, WriteStream } from 'fs'
 
-const getTime = (): string => {
+const getTime = () => {
   const date = new Date()
   const dmy = date.toLocaleDateString()
   const hms = date.toLocaleTimeString()
@@ -8,9 +8,9 @@ const getTime = (): string => {
   return dmy + ' ' + hms
 }
 
-let stream: null | WriteStream = null
+let stream = null
 
-export const startLogging = (): void => {
+export const startLogging = () => {
   const validTime = getTime()
     .replaceAll('.', '-')
     .replaceAll(':', '-')
@@ -24,12 +24,12 @@ export const startLogging = (): void => {
   stream.on('error', (e) => console.log('Logging error:', e.message))
 }
 
-export const log = (...info: string[]): void => {
+export const log = (...info) => {
   if (stream)
     stream.write(`LOG  ${getTime()}  ${info.join(' ')}\n`)
 }
 
-export const error = (...info: string[]): void => {
+export const error = (...info) => {
   if (stream)
     stream.write(`ERROR  ${getTime()}  ${info.join(' ')}\n`)
 }
