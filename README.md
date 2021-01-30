@@ -1,12 +1,12 @@
 # logging-system
 
-##index.js
+## index.js
 ```javascript
 import { startLogging } from './logger.js'
 
 startLogging()
 ```
-##any other file.js
+## any-other-file.js
 ```javascript
 import { error, log } from './logger.js'
 
